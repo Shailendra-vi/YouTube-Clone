@@ -6,7 +6,7 @@ import Loader from './Loader';
 
 const SearchFeed = () => {
   const { data, loading } = useStateContext();
-  document.title = 'U📺tube';
+  document.title = 'Youtube Lone';
   if (loading) {
     return <Loader />;
   }
