@@ -29,10 +29,10 @@ const SearchBar = () => {
     >
       <input
         className='search-bar'
-        placeholder='Search...'
+        placeholder='Search'
         value={searchTerm}
         onChange={(e) => {
-          if (e.target.value !== '') {
+          if (e.target.value !== null) {
             setSearchTerm(e.target.value);
           }
         }}
