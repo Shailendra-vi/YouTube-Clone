@@ -11,10 +11,19 @@ const VideoDetail = () => {
   const { data, fetchData, fetchOtherData, results } = useStateContext();
   const [videoDetail, setVideoDetail] = useState();
   const [like , setLike] = useState();
+  const [liked, setLiked] = useState(false);
   const onIncrement = ()=> {
+    if(!liked){
     setLike(parseInt(like)+1);
+    setLiked(!liked);
+    }
   };
-  
+  const onDecrement = ()=> {
+    if(liked){
+    setLike(parseInt(like)-1);
+    setLiked(!liked);
+    }
+  };
 
   useEffect(() => {
     fetchData(`search?part=snippet&relatedToVideoId=${id}&type=video`);
@@ -91,7 +100,7 @@ const VideoDetail = () => {
                       gap: 1,
                     }}
                   >
-                    <ThumbUpAltOutlinedIcon onClick={onIncrement}/>
+                    <ThumbUpAltOutlinedIcon onClick={liked===false?onIncrement:onDecrement}/>
                     <Typography >
                       {parseInt(like).toLocaleString('en-US')}
                     </Typography>
