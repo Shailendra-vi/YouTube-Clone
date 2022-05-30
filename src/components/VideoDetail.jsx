@@ -34,6 +34,7 @@ const VideoDetail = () => {
     setVideoDetail(results[0]);
     setLike(results[0]?.statistics?.likeCount);
   }, [results]);
+  
 
   if (videoDetail?.snippet?.title) {
     document.title = videoDetail?.snippet?.title;
@@ -53,15 +54,15 @@ const VideoDetail = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              mt: 1,
-              pb: 1,
-              position: 'relative',
+              mt: 5,
+              pb: 3,
+              // position: 'sticky',
               width: '100%',
             }}
           >
             <Box
               className='video-detail'
-              sx={{ position: 'fixed', top: '100px', left: '10px' }}
+              
             >
               <ReactPlayer
                 className='video-card'
@@ -106,17 +107,6 @@ const VideoDetail = () => {
                     </Typography>
                     
                   </Typography>
-
-                  <Typography
-                    sx={{
-                      marginBottom: '5px',
-                      display: 'flex',
-                      justifyContent: 'flex-start',
-                      alignItems: 'center',
-                      gap: 1,
-                    }}
-                  >
-                  </Typography>
                 </Box>
               </Box>
             </Box>
@@ -144,7 +134,7 @@ const VideoDetail = () => {
           </Box>
         </Box>
       )}
-    </>
+      </>
   );
 };
 

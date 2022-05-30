@@ -34,7 +34,7 @@ const Feed = () => {
           overflow: 'auto',
           width: '100%',
           height: '100px',
-          mt: 10,
+          mt: 3,
         }}
       >
         <HorizontalScroll reverseScroll={true}>

@@ -10,9 +10,8 @@ const Navbar = () => {
     <Box sx={{
       display: 'flex',
       justifyContent: 'space-between',
-      p: 2,
+      p: 1,
       pt: 1,
-      // borderBottom: '1px solid #e3e3e3',
       top: 0,
       left: 0,
       background: 'white',
