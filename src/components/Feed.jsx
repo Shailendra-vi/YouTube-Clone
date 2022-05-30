@@ -45,9 +45,9 @@ const Feed = () => {
               sx={{
                 width: '170px',
                 height: '50px',
-                background: '#F9F9F9',
+                background: 'black',
                 borderRadius: 20,
-                color: 'black',
+                color: 'white',
                 cursor: 'pointer',
                 fontWeight: 600,
                 mt: 1,
