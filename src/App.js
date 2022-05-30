@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       <Box sx={{ p: 1 }}>
-        <Box sx={{display: 'flex', borderBottom: '1px solid #e3e3e3', position: 'fixed', width: "100%", background: 'white'}}>
+        <Box sx={{display: 'flex', borderBottom: '1px solid #e3e3e3',  width: "100%", background: 'white'}}>
         <Navbar />
         <SearchBar classname='searchBar'/>
         </Box>
