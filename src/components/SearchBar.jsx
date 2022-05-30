@@ -9,7 +9,7 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const history = useHistory();
   const { fetchData } = useStateContext();
-  const [recent, setRecent] = useState([]);
+  const [recent] = useState([]);
   const onSum = (value) => {
     setSearchTerm(value);
     // onhandleSubmit;
@@ -47,7 +47,7 @@ const SearchBar = () => {
           }
         }}
       />
-      <IconButton type='submit' sx={{ p: '10px' }} aria-label='search'>
+      <IconButton type='submit' sx={{ p: '10px'}} aria-label='search'>
         <SearchIcon />
       </IconButton>
       
