@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ReactPlayer from 'react-player';
 import { useStateContext } from '../contexts/StateContextProvider';
@@ -11,6 +10,11 @@ const VideoDetail = () => {
   const { id } = useParams();
   const { data, fetchData, fetchOtherData, results } = useStateContext();
   const [videoDetail, setVideoDetail] = useState();
+  const [like , setLike] = useState();
+  const onIncrement = ()=> {
+    setLike(parseInt(like)+1);
+  };
+  
 
   useEffect(() => {
     fetchData(`search?part=snippet&relatedToVideoId=${id}&type=video`);
@@ -19,6 +23,7 @@ const VideoDetail = () => {
 
   useEffect(() => {
     setVideoDetail(results[0]);
+    setLike(results[0]?.statistics?.likeCount);
   }, [results]);
 
   if (videoDetail?.snippet?.title) {
@@ -86,13 +91,13 @@ const VideoDetail = () => {
                       gap: 1,
                     }}
                   >
-                    <ThumbUpAltOutlinedIcon />
-                    <Typography>
-                      {parseInt(
-                        videoDetail?.statistics?.likeCount
-                      ).toLocaleString('en-US')}
+                    <ThumbUpAltOutlinedIcon onClick={onIncrement}/>
+                    <Typography >
+                      {parseInt(like).toLocaleString('en-US')}
                     </Typography>
+                    
                   </Typography>
+
                   <Typography
                     sx={{
                       marginBottom: '5px',
@@ -102,12 +107,6 @@ const VideoDetail = () => {
                       gap: 1,
                     }}
                   >
-                    <ThumbDownAltOutlinedIcon />
-                    <Typography>
-                      {parseInt(
-                        videoDetail?.statistics?.dislikeCount
-                      ).toLocaleString('en-US')}
-                    </Typography>
                   </Typography>
                 </Box>
               </Box>
