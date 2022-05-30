@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Feed from './components/Feed';
 import Navbar from './components/Navbar';
+import SearchBar from './components/SearchBar';
 import { Box } from '@mui/material';
 import VideoDetail from './components/VideoDetail';
 import SearchFeed from './components/SearchFeed';
@@ -13,7 +14,12 @@ const App = () => {
   return (
     <Router>
       <Box sx={{ p: 1 }}>
+        <Box sx={{display: 'flex'}}>
         <Navbar />
+        <SearchBar classname='searchBar'/>
+        </Box>
+        <hr/>
+        
         <Switch>
           <Route exact path='/' component={Feed} />
           <Route path='/video-details/:id' component={VideoDetail} />
